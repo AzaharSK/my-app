@@ -22,14 +22,19 @@ The easiest way to get started is using VS Code with Dev Containers:
 2. Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
 3. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for VS Code
 4. Clone the repository:
-   ```
-   git clone https://github.com/your-username/brightcorelabs.git
-   cd brightcorelabs
-   ```
-5. Open the project in VS Code
-6. When prompted, click "Reopen in Container" or use the command palette (F1) and select "Dev Containers: Reopen in Container"
-7. Wait for the container to build and start (this may take a few minutes the first time)
-8. The development server will automatically start (accessible at http://localhost:5000)
+
+```bash
+git clone https://github.com/AzaharSK/my-app.git
+cd ~/my-app/.devcontainer
+
+# docker system prune -af --volumes  # Incase want cleanup docker images
+docker-compose down
+docker-compose up --build
+```
+6. Open the project in VS Code
+7. When prompted, click "Reopen in Container" or use the command palette (F1) and select "Dev Containers: Reopen in Container"
+8. Wait for the container to build and start (this may take a few minutes the first time)
+9. The development server will automatically start (accessible at http://localhost:5000)
 
 All dependencies, including Node.js, PostgreSQL, and required npm packages will be automatically installed in the container.
 
