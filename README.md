@@ -30,6 +30,7 @@ cd ~/my-app/.devcontainer
 # docker system prune -af --volumes  # Incase want cleanup docker images
 docker-compose down
 docker-compose up --build
+http://EC2-ublic-IP:5000/
 ```
 6. Open the project in VS Code
 7. When prompted, click "Reopen in Container" or use the command palette (F1) and select "Dev Containers: Reopen in Container"
