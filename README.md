@@ -6,7 +6,7 @@ BrightCoreLabs is an advanced educational technology platform providing immersiv
 
 This guide provides step-by-step instructions to set up the BrightCoreLabs development environment on your local machine.
 
-### Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following installed:
 
@@ -14,7 +14,7 @@ Before you begin, ensure you have the following installed:
 - **PostgreSQL** (version 15 recommended) - [Download PostgreSQL](https://www.postgresql.org/download/)
 - **Git** - [Download Git](https://git-scm.com/downloads)
 
-### Option 1: Setup with VS Code Dev Containers (Recommended)
+## Option 1: Setup with VS Code Dev Containers (Recommended) or Docker 
 
 The easiest way to get started is using VS Code with Dev Containers:
 
@@ -22,6 +22,12 @@ The easiest way to get started is using VS Code with Dev Containers:
 2. Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
 3. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for VS Code
 4. Clone the repository:
+6. Open the project in VS Code
+7. When prompted, click "Reopen in Container" or use the command palette (F1) and select "Dev Containers: Reopen in Container"
+8. Wait for the container to build and start (this may take a few minutes the first time)
+9. The development server will automatically start (accessible at http://localhost:5000)
+
+All dependencies, including Node.js, PostgreSQL, and required npm packages will be automatically installed in the container.
 
 ```bash
 git clone https://github.com/AzaharSK/my-app.git
@@ -32,14 +38,8 @@ docker-compose down
 docker-compose up --build
 http://EC2-ublic-IP:5000/
 ```
-6. Open the project in VS Code
-7. When prompted, click "Reopen in Container" or use the command palette (F1) and select "Dev Containers: Reopen in Container"
-8. Wait for the container to build and start (this may take a few minutes the first time)
-9. The development server will automatically start (accessible at http://localhost:5000)
-
-All dependencies, including Node.js, PostgreSQL, and required npm packages will be automatically installed in the container.
-
-### Option 2: Manual Setup
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Option 2: Manual Setup
 
 If you prefer to set up without containers, follow these steps:
 
