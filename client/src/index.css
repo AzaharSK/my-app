@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    /* W3Schools Green */
+    --primary: 154 77% 33%;
+    --primary-foreground: 0 0% 100%;
+    /* W3Schools Dark Gray/Blue for headers and navigation */
+    --secondary: 225 12% 19%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 207 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --ring: 154 77% 33%;
+    --radius: 0.25rem;
+    --success: 142 76% 36%;
+    --error: 0 74% 58%;
+    --info: 207 90% 54%;
+    /* W3Schools page colors */
+    --neutral-bg: 220 16% 96%;
+    --neutral-light: 0 0% 100%;
+    --neutral-dark: 224 28% 18%;
+    --neutral-mid: 210 11% 71%;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --primary: 154 77% 33%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 225 12% 19%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 207 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: 154 77% 33%;
+    --radius: 0.25rem;
+    --success: 142 76% 36%;
+    --error: 0 74% 58%;
+    --info: 207 90% 54%;
+    --neutral-bg: 240 10% 12%;
+    --neutral-light: 240 10% 20%;
+    --neutral-dark: 0 0% 95%;
+    --neutral-mid: 215 14% 34%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-neutral-bg text-foreground font-sans antialiased min-h-screen flex flex-col;
+  }
+
+  code, pre, .code-editor {
+    font-family: 'Fira Code', monospace;
+  }
+
+  .code-color-syntax {
+    @apply text-white;
+  }
+
+  .code-color-syntax .keyword {
+    @apply text-blue-400;
+  }
+
+  .code-color-syntax .comment {
+    @apply text-gray-400;
+  }
+
+  .code-color-syntax .string {
+    @apply text-green-400;
+  }
+
+  .code-color-syntax .function {
+    @apply text-yellow-400;
+  }
+
+  .code-color-syntax .variable {
+    @apply text-purple-400;
+  }
+
+  .code-color-syntax .number {
+    @apply text-orange-400;
+  }
+
+  .sidebar-item a.active {
+    @apply bg-primary/10 text-primary font-medium border-l-4 border-primary;
+  }
+
+  .sidebar-item a {
+    @apply px-4 py-3 flex items-center text-neutral-dark hover:bg-gray-100 transition-colors;
+  }
+}
