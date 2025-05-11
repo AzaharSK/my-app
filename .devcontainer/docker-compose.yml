@@ -2,24 +2,33 @@ version: '3.8'
 
 services:
   app:
-    build: 
+    build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
     volumes:
       - ..:/workspace:cached
-    command: sleep infinity
+      # Use anonymous volume to prevent overwriting node_modules with host directory
+      - /workspace/node_modules
+    # Change sleep infinity to actual command to run the app
+    command: bash -c "cd /workspace && npm install && npm run dev"
     ports:
-      - "80:80"
-    network_mode: service:db
+      - "5000:5000"
+    # Change network mode to use bridge networking so it can be accessed externally
+    # Remove network_mode: service:db
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@localhost:5432/postgres
-      - PGHOST=localhost
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres
+      - WEBSOCKET_URL=http://localhost:5000
+      - PGHOST=db
       - PGUSER=postgres
       - PGPASSWORD=postgres
       - PGDATABASE=postgres
       - PGPORT=5432
     depends_on:
       - db
+    # Add user to fix permission issues
+    user: node
+    # Add restart policy
+    restart: unless-stopped
 
   db:
     image: postgres:15
@@ -30,8 +39,9 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
+    # If you need to access Postgres directly from the host
     ports:
       - "5432:5432"
 
 volumes:
-  postgres-data:
+  postgres-data: {}
